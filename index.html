@@ -9,18 +9,19 @@
             font-family: "Roboto", sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #ffffff;
+            background-color: #f8f9fa; /* Light gray background */
             color: #333333;
         }
 
         header {
-            background-color: #1976d2;
-            color: #ffffff;
+            background-color: #ffd700; /* Golden yellow */
+            color: #333333;
             padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-radius: 10px; /* Added rounded corners */
+            border-radius: 20px; /* More rounded corners */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
         }
 
         nav ul {
@@ -28,7 +29,7 @@
             padding: 0;
             margin: 0;
             display: flex;
-            border-radius: 10px; /* Added rounded corners */
+            border-radius: 20px; /* More rounded corners */
             overflow: hidden; /* To contain the rounded corners */
         }
 
@@ -39,17 +40,17 @@
         nav ul li a {
             color: #ffffff;
             text-decoration: none;
-            transition: color 0.3s;
-            padding: 10px 20px; /* Added padding */
-            border-radius: 5px; /* Added rounded corners */
-            background-color: #1976d2; /* Button background color */
-            display: inline-block; /* Ensures the link behaves like a button */
+            transition: transform 0.3s, background-color 0.3s; /* Added transition for hover effect */
+            padding: 10px 20px;
+            border-radius: 30px; /* More rounded corners */
+            background-color: #ff5733; /* Orange */
+            display: inline-block;
         }
 
         nav ul li a:hover {
             color: #ffffff;
             text-decoration: none;
-            background-color: #135ba1; /* Darker background color on hover */
+            background-color: #ff8c56; /* Lighter orange on hover */
             transform: translateY(-2px); /* Added hover animation */
         }
 
@@ -63,12 +64,13 @@
         }
 
         .footer {
-            background-color: #1976d2;
-            color: #ffffff;
-            padding: 10px;
+            background-color: #ffd700; /* Golden yellow */
+            color: #333333;
+            padding: 20px;
             text-align: center;
-            border-radius: 10px; /* Added rounded corners */
-            margin-top: 20px; /* Added margin to separate from content */
+            border-radius: 20px; /* More rounded corners */
+            margin-top: 20px;
+            box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
         }
     </style>
 </head>
