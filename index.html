@@ -20,6 +20,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-radius: 10px; /* Added rounded corners */
         }
 
         nav ul {
@@ -27,6 +28,8 @@
             padding: 0;
             margin: 0;
             display: flex;
+            border-radius: 10px; /* Added rounded corners */
+            overflow: hidden; /* To contain the rounded corners */
         }
 
         nav ul li {
@@ -37,11 +40,17 @@
             color: #ffffff;
             text-decoration: none;
             transition: color 0.3s;
+            padding: 10px 20px; /* Added padding */
+            border-radius: 5px; /* Added rounded corners */
+            background-color: #1976d2; /* Button background color */
+            display: inline-block; /* Ensures the link behaves like a button */
         }
 
         nav ul li a:hover {
             color: #ffffff;
-            text-decoration: underline;
+            text-decoration: none;
+            background-color: #135ba1; /* Darker background color on hover */
+            transform: translateY(-2px); /* Added hover animation */
         }
 
         main {
@@ -58,6 +67,8 @@
             color: #ffffff;
             padding: 10px;
             text-align: center;
+            border-radius: 10px; /* Added rounded corners */
+            margin-top: 20px; /* Added margin to separate from content */
         }
     </style>
 </head>
