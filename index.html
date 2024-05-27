@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>De Europese Onion</title>
-    <link rel="icon" type="image/x-icon" href="profile-pic.png">
     <style>
         body {
             font-family: "Sans-serif";
             margin: 0;
             padding: 0;
-            background-color: rgba(12, 12, 12);
-            color: #ffffff;
+            background-color: #ffffff; /* Light mode background */
+            color: #000000; /* Light mode text color */
             transition: background-color 0.3s, color 0.3s;
         }
 
@@ -24,27 +23,6 @@
             border-radius: 100px;
         }
 
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        nav li {
-            margin: 0 1rem;
-        }
-
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        nav a.active {
-            color: red;
-        }
-
         .theme-switch {
             display: flex;
             align-items: center;
@@ -55,13 +33,7 @@
             display: inline-block;
             width: 34px;
             height: 20px;
-            margin-right: 0.5rem;
-        }
-
-        .switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
+            margin-right: 1rem; /* Moved toggle to the right side */
         }
 
         .slider {
@@ -88,6 +60,17 @@
             border-radius: 50%;
         }
 
+        .slider-morph {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: radial-gradient(circle at center, #f1c40f 0%, #f1c40f 40%, #636e72 40%, #636e72 100%); /* Sun */
+            transition: 0.4s;
+            left: calc(100% - 10px);
+            transform: scale(0.8);
+        }
+
         input:checked + .slider {
             background-color: #2196F3;
         }
@@ -96,9 +79,14 @@
             transform: translateX(14px);
         }
 
+        input:checked + .slider + .slider-morph {
+            left: -10px;
+            background: radial-gradient(circle at center, #f39c12 0%, #f39c12 40%, #2c3e50 40%, #2c3e50 100%); /* Moon */
+        }
+
         body.dark-mode {
-            background-color: #333;
-            color: #ddd;
+            background-color: #000000; /* Dark mode background */
+            color: #ffffff; /* Dark mode text color */
         }
 
         body.dark-mode header {
@@ -113,39 +101,26 @@
                 <li><a class="active" href="#Home">Home</a></li>
                 <li><a href="geschiedenis.html">De geschiedenis</a></li>
             </ul>
-            <div class="theme-switch">
-                <label class="switch">
-                    <input type="checkbox" id="darkModeToggle">
-                    <span class="slider round"></span>
-                </label>
-                <span>Dark Mode</span>
-            </div>
         </nav>
+        <div class="theme-switch">
+            <label class="switch">
+                <input type="checkbox" id="darkModeToggle">
+                <span class="slider"></span>
+                <span class="slider-morph"></span>
+            </label>
+            <span>Dark Mode</span>
+        </div>
     </header>
     <main>
         <p>Dit is de website voor het PO voor AK over de EU van Mikey, Ruben en Lasse Zeikens. Alle info is te vinden via het menu bovenaan.</p>
     </main>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const toggleSwitch = document.getElementById('darkModeToggle');
-            const currentTheme = localStorage.getItem('theme');
-
-            if (currentTheme) {
-                document.body.classList.add(currentTheme);
-                if (currentTheme === 'dark-mode') {
-                    toggleSwitch.checked = true;
-                }
+        document.getElementById('darkModeToggle').addEventListener('change', function(event) {
+            if (event.target.checked) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
             }
-
-            toggleSwitch.addEventListener('change', (event) => {
-                if (event.target.checked) {
-                    document.body.classList.add('dark-mode');
-                    localStorage.setItem('theme', 'dark-mode');
-                } else {
-                    document.body.classList.remove('dark-mode');
-                    localStorage.setItem('theme', 'light-mode');
-                }
-            });
         });
     </script>
 </body>
