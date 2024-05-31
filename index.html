@@ -4,24 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>De Europese Onion</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #ffab40;
+            --secondary-color: #ff6f00;
+            --background-light: #f8f9fa; /* Light gray background */
+            --background-dark: #121212;
+            --text-light: #333333;
+            --text-dark: #ffffff;
+        }
+
         body {
             font-family: "Roboto", sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa; /* Light gray background */
-            color: #333333;
+            background-color: var(--background-light);
+            color: var(--text-light);
+            transition: background-color 0.3s, color 0.3s;
         }
 
         header {
-            background-color: #ffd700; /* Golden yellow */
-            color: #333333;
+            background-color: var(--primary-color);
+            color: var(--text-light);
             padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-radius: 20px; /* More rounded corners */
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
+            border-radius: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         nav ul {
@@ -29,8 +40,8 @@
             padding: 0;
             margin: 0;
             display: flex;
-            border-radius: 20px; /* More rounded corners */
-            overflow: hidden; /* To contain the rounded corners */
+            border-radius: 20px;
+            overflow: hidden;
         }
 
         nav ul li {
@@ -40,18 +51,16 @@
         nav ul li a {
             color: #ffffff;
             text-decoration: none;
-            transition: transform 0.3s, background-color 0.3s; /* Added transition for hover effect */
+            transition: transform 0.3s, background-color 0.3s;
             padding: 10px 20px;
-            border-radius: 30px; /* More rounded corners */
-            background-color: #ff5733; /* Orange */
+            border-radius: 30px;
+            background-color: #ff5733;
             display: inline-block;
         }
 
         nav ul li a:hover {
-            color: #ffffff;
-            text-decoration: none;
-            background-color: #ff8c56; /* Lighter orange on hover */
-            transform: translateY(-2px); /* Added hover animation */
+            background-color: #ff8c56;
+            transform: translateY(-2px);
         }
 
         main {
@@ -64,13 +73,45 @@
         }
 
         .footer {
-            background-color: #ffd700; /* Golden yellow */
-            color: #333333;
+            background-color: var(--secondary-color);
+            color: var(--text-dark);
             padding: 20px;
             text-align: center;
-            border-radius: 20px; /* More rounded corners */
-            margin-top: 20px;
-            box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
+            border-radius: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            transition: transform 0.3s;
+        }
+
+        #theme-toggle .material-icons {
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            background-color: var(--background-dark);
+            color: var(--text-dark);
+        }
+
+        body.dark-mode header {
+            background-color: #bb86fc;
+        }
+
+        body.dark-mode .footer {
+            background-color: #3700b3;
+        }
+
+        body.dark-mode #theme-toggle .material-icons {
+            color: var(--text-light);
+            transform: rotate(180deg);
         }
     </style>
 </head>
@@ -85,6 +126,9 @@
                 <li><a href="voor-en-na-delen.html">Voor en na delen</a></li>
             </ul>
         </nav>
+        <button id="theme-toggle">
+            <span class="material-icons">light_mode</span>
+        </button>
     </header>
     <main>
         <div class="page-content">
@@ -95,5 +139,21 @@
     <div class="footer">
         &copy; Mikey, Ruben en Lasse
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const icon = themeToggle.querySelector('.material-icons');
+
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+
+                if (document.body.classList.contains('dark-mode')) {
+                    icon.textContent = 'dark_mode';
+                } else {
+                    icon.textContent = 'light_mode';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
