@@ -1,57 +1,188 @@
 <!DOCTYPE html>
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
-}
-
-.container {
-    text-align: center;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 25px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
-}
-
-.message-box h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-    color: #333333;
-}
-
-.message-box p {
-    font-size: 1.2em;
-    color: #666666;
-}
-body {
-background: rgba(0, 128, 0, 0.3)
-}
-
-
-</style>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>De EU</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Voor- en nadelen | De EU</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ffb4b4;
+            --secondary-color: #477a75;
+            --background-light: #FFFFFF;
+            --background-dark: #000000;
+            --text-light: #000000;
+            --text-dark: #ffffff;
+            --menu-footer-light: #444444;
+            --menu-footer-dark: #333333;
+            --accent-dark-hover: #018786;
+        }
+
+        body {
+            font-family: "Roboto", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+            color: var(--text-light);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            background-color: var(--menu-footer-light);
+            color: var(--text-dark);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 0;
+        }
+
+        .header-title {
+            flex: 1;
+        }
+
+        .menu {
+            flex: 2;
+            display: flex;
+            justify-content: center;
+        }
+
+        .menu nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .menu nav ul li {
+            margin-right: 20px;
+        }
+
+        .menu nav ul li a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: transform 0.3s, background-color 0.3s;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #666666;
+            display: inline-block;
+        }
+
+        .menu nav ul li a:hover {
+            background-color: #888888;
+            transform: translateY(-2px);
+        }
+
+        #theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            transition: transform 0.3s;
+        }
+
+        #theme-toggle .material-icons {
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .page-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--primary-color);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer {
+            background-color: var(--menu-footer-light);
+            color: var(--text-dark);
+            padding: 20px;
+            text-align: center;
+            border-radius: 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode {
+            background-color: var(--background-dark);
+            color: var(--text-dark);
+        }
+
+        body.dark-mode header, body.dark-mode .footer {
+            background-color: var(--menu-footer-dark);
+            color: var(--text-dark);
+        }
+
+        body.dark-mode .menu nav ul li a {
+            background-color: var(--accent-dark-hover);
+            color: var(--text-dark);
+        }
+
+        body.dark-mode .menu nav ul li a:hover {
+            background-color: #ff8c56;
+        }
+
+        body.dark-mode .page-content {
+            background-color: var(--secondary-color);
+            color: var(--text-dark);
+        }
+
+        body.dark-mode #theme-toggle .material-icons {
+            color: var(--text-dark);
+            transform: rotate(360deg);
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="message-box">
-            <h1>Bijna gelukt!</h1>
-            <p>We zijn nog bezig met deze pagina, maar als je later terug komt is die misschien wel klaar!</p>
+    <header>
+        <div class="header-title">Geschiedenis</div>
+        <div class="menu">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="geschiedenis.html">Geschiedenis</a></li>
+                    <li><a href="voor-en-na-delen.html">Voor en na delen</a></li>
+                    <li><a href="voorspelling-toekomst.html">Voorspelling van de Toekomst</a></li>
+                    <li><a href="onderzoek.html">Onderzoek</a></li>
+                </ul>
+            </nav>
         </div>
+        <button id="theme-toggle">
+            <span class="material-icons">light_mode</span>
+        </button>
+    </header>
+    <main>
+        <div class="page-content">
+            <h2>Voor- en nadelen</h2>
+            <p>Deze content is nog in werking</p>
+        </div>
+    </main>
+    <div class="footer">
+        &copy; Mikey, Ruben en Lasse
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const icon = themeToggle.querySelector('.material-icons');
+
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+
+                if (document.body.classList.contains('dark-mode')) {
+                    icon.textContent = 'dark_mode';
+                } else {
+                    icon.textContent = 'light_mode';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
