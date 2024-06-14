@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Onderzoek | De EU</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <style>
+ <style>
     :root {
         --primary-color: #90EE90;
         --secondary-color: #477a75;
@@ -18,173 +18,154 @@
         --accent-dark-hover: #018786;
     }
 
-        body {
-            font-family: "Roboto", sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-light);
-            color: var(--text-light);
-            transition: background-color 0.3s, color 0.3s;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            overflow-x: hidden; /* Ensure no horizontal overflow */
-        }
+    body {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-light);
+        color: var(--text-light);
+        transition: background-color 0.3s, color 0.3s;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        overflow-x: hidden; /* Ensure no horizontal overflow */
+        padding-top: 80px; /* Adjust this value based on the height of your header */
+    }
 
-        header {
-            background-color: var(--menu-footer-light);
-            color: var(--text-dark);
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 0;
-            width: 100%; /* Ensure header takes full width */
-            box-sizing: border-box; /* Include padding and border in element's width and height */
-        }
+    header {
+        background-color: var(--menu-footer-light);
+        color: var(--text-dark);
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 0;
+        width: 100%; /* Ensure header takes full width */
+        box-sizing: border-box; /* Include padding and border in element's width and height */
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+        border-radius: 0 0 15px 15px;
+    }
 
-        .header-title {
-            flex: 1;
-        }
+    header.scrolled {
+        background-color: var(--menu-footer-dark);
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+        transform: translateY(-10px);
+    }
 
-        .menu {
-            flex: 2;
-            display: flex;
-            justify-content: center;
-        }
+    .header-title {
+        flex: 1;
+    }
 
-        .menu nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-        }
+    .menu {
+        flex: 2;
+        display: flex;
+        justify-content: center;
+    }
 
-        .menu nav ul li {
-            margin-right: 20px;
-        }
+    .menu nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
 
-        .menu nav ul li a {
-            color: var(--text-dark);
-            text-decoration: none;
-            transition: transform 0.3s, background-color 0.3s;
-            padding: 10px 20px;
-            border-radius: 5px;
-            background-color: #666666;
-            display: inline-block;
-        }
+    .menu nav ul li {
+        margin-right: 20px;
+    }
 
-        .menu nav ul li a:hover {
-            background-color: #888888;
-            transform: translateY(-2px);
-        }
+    .menu nav ul li a {
+        color: var(--text-dark);
+        text-decoration: none;
+        transition: transform 0.3s, background-color 0.3s;
+        padding: 10px 20px;
+        border-radius: 25px; /* More rounded corners for menu items */
+        background-color: #666666;
+        display: inline-block;
+    }
 
-        #theme-toggle {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 24px;
-            transition: transform 0.3s;
-        }
+    .menu nav ul li a:hover {
+        background-color: #888888;
+        transform: translateY(-2px);
+    }
 
-        #theme-toggle .material-icons {
-            transition: transform 0.3s, color 0.3s;
-        }
+    #theme-toggle {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 24px;
+        transition: transform 0.3s;
+    }
 
-        main {
-            flex: 1;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            box-sizing: border-box; /* Include padding and border in element's width and height */
-            width: 100%; /* Ensure main takes full width */
-        }
+    #theme-toggle .material-icons {
+        transition: transform 1s, color 1s;
+    }
 
-        .page-content {
-            max-width: 800px;
-            width: 100%; /* Ensure page content takes full width within its max-width */
-            margin: 0 auto;
-            background-color: var(--primary-color);
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            box-sizing: border-box; /* Include padding and border in element's width and height */
-        }
+    main {
+        flex: 1;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        box-sizing: border-box; /* Include padding and border in element's width and height */
+        width: 100%; /* Ensure main takes full width */
+    }
 
-        .footer {
-            background-color: var(--menu-footer-light);
-            color: var(--text-dark);
-            padding: 20px;
-            text-align: center;
-            border-radius: 0;
-            width: 100%; /* Ensure footer takes full width */
-            box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
-            box-sizing: border-box; /* Include padding and border in element's width and height */
-        }
+    .page-content {
+        max-width: 800px;
+        width: 100%; /* Ensure page content takes full width within its max-width */
+        margin: 0 auto;
+        background-color: var(--primary-color);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box; /* Include padding and border in element's width and height */
+    }
 
-        .doc-viewer {
-            width: 100%;
-            height: 600px;
-            border: none;
-            margin-bottom: 20px;
-        }
+    .footer {
+        background-color: var(--menu-footer-light);
+        color: var(--text-dark);
+        padding: 20px;
+        text-align: center;
+        border-radius: 0;
+        width: 100%; /* Ensure footer takes full width */
+        box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box; /* Include padding and border in element's width and height */
+    }
 
-        .controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    body.dark-mode {
+        background-color: var(--background-dark);
+        color: var(--text-dark);
+    }
 
-        .controls button {
-            background-color: var(--secondary-color);
-            color: var(--text-dark);
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            transition: background-color 0.3s;
-        }
+    body.dark-mode header, body.dark-mode .footer {
+        background-color: var(--menu-footer-dark);
+        color: var(--text-dark);
+    }
 
-        .controls button:hover {
-            background-color: var(--accent-dark-hover);
-        }
+    body.dark-mode .menu nav ul li a {
+        background-color: var(--accent-dark-hover);
+        color: var(--text-dark);
+    }
 
-        .controls .material-icons {
-            margin-right: 8px;
-        }
+    body.dark-mode .menu nav ul li a:hover {
+        background-color: #ff8c56;
+    }
 
-        body.dark-mode {
-            background-color: var(--background-dark);
-            color: var(--text-dark);
-        }
+    body.dark-mode .page-content {
+        background-color: var(--secondary-color);
+        color: var (--text-dark);
+    }
 
-        body.dark-mode header, body.dark-mode .footer {
-            background-color: var(--menu-footer-dark);
-            color: var(--text-dark);
-        }
-
-        body.dark-mode .menu nav ul li a {
-            background-color: var(--accent-dark-hover);
-            color: var(--text-dark);
-        }
-
-        body.dark-mode .menu nav ul li a:hover {
-            background-color: #ff8c56;
-        }
-
-        body.dark-mode .page-content {
-            background-color: var(--secondary-color);
-            color: var(--text-dark);
-        }
-
-        body.dark-mode #theme-toggle .material-icons {
-            color: var(--text-dark);
-            transform: rotate(360deg);
-        }
-    </style>
+    body.dark-mode #theme-toggle .material-icons {
+        color: var(--text-dark);
+        transform: rotate(360deg);
+    }
+</style>
 </head>
 <body>
     <header>
