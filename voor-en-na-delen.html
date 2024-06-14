@@ -234,6 +234,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const themeToggle = document.getElementById('theme-toggle');
             const icon = themeToggle.querySelector('.material-icons');
+            const header = document.querySelector('header');
 
             themeToggle.addEventListener('click', () => {
                 document.body.classList.toggle('dark-mode');
@@ -242,6 +243,14 @@
                     icon.textContent = 'dark_mode';
                 } else {
                     icon.textContent = 'light_mode';
+                }
+            });
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
                 }
             });
         });
