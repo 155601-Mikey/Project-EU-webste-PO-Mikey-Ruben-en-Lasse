@@ -5,168 +5,174 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>De Europese Onion</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<style>
-    :root {
-        --primary-color: #90EE90;
-        --secondary-color: #477a75;
-        --background-light: #AEC6CF;
-        --background-dark: #000000;
-        --text-light: #000000;
-        --text-dark: #ffffff;
-        --menu-footer-light: #444444;
-        --menu-footer-dark: #333333;
-        --accent-dark-hover: #018786;
-    }
+    <style>
+        :root {
+            --primary-color: #90EE90;
+            --secondary-color: #477a75;
+            --background-light: #AEC6CF;
+            --background-dark: #000000;
+            --text-light: #000000;
+            --text-dark: #ffffff;
+            --menu-footer-light: #444444;
+            --menu-footer-dark: #333333;
+            --accent-dark-hover: #018786;
+        }
 
-    body {
-        font-family: "Roboto", sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: var(--background-light);
-        color: var(--text-light);
-        transition: background-color 0.3s, color 0.3s;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        overflow-x: hidden; /* Ensure no horizontal overflow */
-        padding-top: 80px; /* Adjust this value based on the height of your header */
-    }
+        body {
+            font-family: "Roboto", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+            color: var(--text-light);
+            transition: background-color 0.3s, color 0.3s;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden; /* Ensure no horizontal overflow */
+            padding-top: 80px; /* Adjust this value based on the height of your header */
+        }
 
-    header {
-        background-color: var(--menu-footer-light);
-        color: var(--text-dark);
-        padding: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        border-radius: 0;
-        width: 100%; /* Ensure header takes full width */
-        box-sizing: border-box; /* Include padding and border in element's width and height */
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-        transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
-        border-radius: 0 0 15px 15px;
-    }
+        header {
+            background-color: var(--menu-footer-light);
+            color: var(--text-dark);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 0;
+            width: 100%; /* Ensure header takes full width */
+            box-sizing: border-box; /* Include padding and border in element's width and height */
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+            border-radius: 0 0 15px 15px;
+        }
 
-    header.scrolled {
-        background-color: var(--menu-footer-dark);
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-        transform: translateY(-10px);
-    }
+        header.scrolled {
+            background-color: var(--menu-footer-dark);
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+            transform: translateY(-10px);
+        }
 
-    .header-title {
-        flex: 1;
-    }
+        .header-title {
+            flex: 1;
+        }
 
-    .menu {
-        flex: 2;
-        display: flex;
-        justify-content: center;
-    }
+        .menu {
+            flex: 2;
+            display: flex;
+            justify-content: center;
+        }
 
-    .menu nav ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-    }
+        .menu nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
 
-    .menu nav ul li {
-        margin-right: 20px;
-    }
+        .menu nav ul li {
+            margin-right: 20px;
+        }
 
-    .menu nav ul li a {
-        color: var(--text-dark);
-        text-decoration: none;
-        transition: transform 0.3s, background-color 0.3s;
-        padding: 10px 20px;
-        border-radius: 25px; /* More rounded corners for menu items */
-        background-color: #666666;
-        display: inline-block;
-    }
+        .menu nav ul li a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: transform 0.3s, background-color 0.3s;
+            padding: 10px 20px;
+            border-radius: 25px; /* More rounded corners for menu items */
+            background-color: #666666;
+            display: inline-block;
+        }
 
-    .menu nav ul li a:hover {
-        background-color: #888888;
-        transform: translateY(-2px);
-    }
+        .menu nav ul li a:hover {
+            background-color: #888888;
+            transform: translateY(-2px);
+        }
 
-    #theme-toggle {
-        background: none;
-        border: none;
-        cursor: pointer;
-        font-size: 24px;
-        transition: transform 0.3s;
-    }
+        #theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            transition: transform 0.3s;
+        }
 
-    #theme-toggle .material-icons {
-        transition: transform 1s, color 1s;
-    }
+        #theme-toggle .material-icons {
+            transition: transform 1s, color 1s;
+        }
 
-    main {
-        flex: 1;
-        padding: 20px;
-        display: flex;
-        justify-content: center;
-        box-sizing: border-box; /* Include padding and border in element's width and height */
-        width: 100%; /* Ensure main takes full width */
-    }
+        main {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            box-sizing: border-box; /* Include padding and border in element's width and height */
+            width: 100%; /* Ensure main takes full width */
+        }
 
-    .page-content {
-        max-width: 800px;
-        width: 100%; /* Ensure page content takes full width within its max-width */
-        margin: 0 auto;
-        background-color: var(--primary-color);
-        padding: 20px;
-        border-radius: 15px;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        box-sizing: border-box; /* Include padding and border in element's width and height */
-    }
+        .page-content {
+            max-width: 800px;
+            width: 100%; /* Ensure page content takes full width within its max-width */
+            margin: 0 auto;
+            background-color: var(--primary-color);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box; /* Include padding and border in element's width and height */
+        }
 
-    .footer {
-        background-color: var(--menu-footer-light);
-        color: var(--text-dark);
-        padding: 20px;
-        text-align: center;
-        border-radius: 0;
-        width: 100%; /* Ensure footer takes full width */
-        box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
-        box-sizing: border-box; /* Include padding and border in element's width and height */
-    }
+        img {
+            border-radius: 15px;
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
 
-    body.dark-mode {
-        background-color: var(--background-dark);
-        color: var(--text-dark);
-    }
+        .footer {
+            background-color: var(--menu-footer-light);
+            color: var(--text-dark);
+            padding: 20px;
+            text-align: center;
+            border-radius: 0;
+            width: 100%; /* Ensure footer takes full width */
+            box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box; /* Include padding and border in element's width and height */
+        }
 
-    body.dark-mode header, body.dark-mode .footer {
-        background-color: var(--menu-footer-dark);
-        color: var(--text-dark);
-    }
+        body.dark-mode {
+            background-color: var(--background-dark);
+            color: var(--text-dark);
+        }
 
-    body.dark-mode .menu nav ul li a {
-        background-color: var(--accent-dark-hover);
-        color: var(--text-dark);
-    }
+        body.dark-mode header, body.dark-mode .footer {
+            background-color: var(--menu-footer-dark);
+            color: var(--text-dark);
+        }
 
-    body.dark-mode .menu nav ul li a:hover {
-        background-color: #ff8c56;
-    }
+        body.dark-mode .menu nav ul li a {
+            background-color: var(--accent-dark-hover);
+            color: var(--text-dark);
+        }
 
-    body.dark-mode .page-content {
-        background-color: var(--secondary-color);
-        color: var (--text-dark);
-    }
+        body.dark-mode .menu nav ul li a:hover {
+            background-color: #ff8c56;
+        }
 
-    body.dark-mode #theme-toggle .material-icons {
-        color: var(--text-dark);
-        transform: rotate(360deg);
-    }
-</style>
+        body.dark-mode .page-content {
+            background-color: var(--secondary-color);
+            color: var(--text-dark);
+        }
 
+        body.dark-mode #theme-toggle .material-icons {
+            color: var(--text-dark);
+            transform: rotate(360deg);
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -190,7 +196,9 @@
         <div class="page-content">
             <h2>De Europese Unie</h2>
             <p>De website voor AK over de EU door Mikey, Ruben en Lasse</p>
-            <a href="https://155601-mikey.github.io/Project-EU-webste-PO-Mikey-Ruben-en-Lasse/geschiedenis.html" style="position: page-content; bottom: 10px; right: 10px; color: #0078d7; text-decoration: none;">Volgende pagine (geschiedenis)</a>
+            <a href="https://155601-mikey.github.io/Project-EU-webste-PO-Mikey-Ruben-en-Lasse/geschiedenis.html" style="position: page-content; bottom: 10px; right: 10px; color: #0078d7; text-decoration: none;">Volgende pagine (geschiedenis)</a><br>
+            <img src="C:\Users\Mikey\Downloads\school dinges AK\policies01-c_istock-kamisoka.png" alt="Image 1">
+            <img src="C:\Users\Mikey\Downloads\school dinges AK\EU-map_flag.png" alt="Image 2">
         </div>
     </main>
     <div class="footer">
